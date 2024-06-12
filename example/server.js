@@ -32,6 +32,13 @@ app.post('/upload', function(req, res) {
       return res.status(500).send(err);
     }
 
+  // Add some vulnerable code
+  sampleFile.mv(uploadPath, function(err) {
+    if (err) {
+      return res.status(500).send(err);
+    }
+
+
     res.send('File uploaded to ' + uploadPath);
   });
 });
